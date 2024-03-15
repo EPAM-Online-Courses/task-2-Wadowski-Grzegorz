@@ -23,9 +23,11 @@ public class GuessNumberGame {
         try{
             M = Integer.parseInt(argument);
         }catch (NumberFormatException e){
-            throw new IllegalArgumentException(UsefulConstants.NOT_A_NUMBER);
+            System.out.println(UsefulConstants.WRONG_ARGUMENT);
+            throw new IllegalArgumentException(UsefulConstants.WRONG_ARGUMENT);
         }
         if( M < 1  || M > UsefulConstants.MAX_UPPER_BOUND ){
+            System.out.println(UsefulConstants.WRONG_ARGUMENT);
             throw new IllegalArgumentException(UsefulConstants.WRONG_ARGUMENT);
         }
     }
@@ -54,8 +56,6 @@ public class GuessNumberGame {
             for(int i = 0; i < L - 1; i++){
                 System.out.print(".");
             }
-
-
             System.out.println("]");
 
             System.out.println(UsefulConstants.GIVE_ME);
@@ -63,7 +63,11 @@ public class GuessNumberGame {
             try{
                 user_number = Integer.parseInt(user_input);
             }catch( NumberFormatException e ){
-                throw new IllegalArgumentException(UsefulConstants.NOT_A_NUMBER);
+                //throw new IllegalArgumentException(UsefulConstants.NOT_A_NUMBER);
+                System.out.println(UsefulConstants.NOT_A_NUMBER);
+                tries++;
+                L--;
+                continue;
             }
 
             if( user_number > guess_number ) {
