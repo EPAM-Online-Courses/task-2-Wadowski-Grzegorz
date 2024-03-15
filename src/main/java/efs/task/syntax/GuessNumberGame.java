@@ -55,6 +55,7 @@ public class GuessNumberGame {
                 System.out.print(".");
             }
 
+
             System.out.println("]");
 
             System.out.println(UsefulConstants.GIVE_ME);
